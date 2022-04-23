@@ -4,6 +4,11 @@ app.get("/",function(req,res){
     res.send("le serveur est en marche :) ")
 })
 
-app.listen(3000,()=>{
-    console.log("server started")
+app.get("/bonjour",function(req,res){
+    res.send("le serveur dit bonjour ")
 })
+
+app.use(express.urlencoded({extended:true}))
+app.listen(process.env.PORT || 5000,()=>{
+    console.log('now listening for requests on port',process.env.PORT);})
+
